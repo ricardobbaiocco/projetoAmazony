@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Novo Cadastro</title>
+    <link rel="icon" href="imagens/logo.png" type="image/png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="banner">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">Amazony Info</a>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Página Inicial</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cadastro_produto.html">Produtos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Serviços</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cadastro_pessoa.html">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Quem Somos</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container formularios">
+        <br>
+         <!-- Divs para alertas de sucesso e erro -->
+         <div class="alert alert-success alert-narrow" id="alert-success" style="display: none;">
+            Cliente cadastrado com sucesso!
+            </div>
+            <div class="alert alert-danger alert-narrow" id="alert-error" style="display: none;">
+            Erro ao cadastrar cliente. Por favor, verifique os dados e tente novamente.
+            </div>
+        <h2 align="center">Cadastro Pessoa</h2>
+        <br>
+        <form method="POST" action="cadastro_pessoa.php" id="form-cadastro">
+            <div class="row justify-content-center">   
+                <div class="form-group col-md-3">
+                    <label for="nome">Nome Completo</label>
+                    <input type="text" class="form-control campo-obrigatorio" id="nome" name="nome" required>
+                </div>
+                <br>
+                <div class="form-group col-md-3">
+                    <label for="cpf">CPF</label>
+                    <input type="text" class="form-control" id="cpf" name="cpf" required>
+                </div>
+            </div>
+            <br>
+            <div class="row justify-content-center">
+                <div class="form-group col-md-3">
+                    <label for="dtnascimento">Data de Nascimento</label>
+                    <input type="date" class="form-control" id="dtnascimento" name="dtnascimento" required>
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="cep">CEP</label>
+                    <input name="cep" type="text" id="cep" value="" class="form-control" onblur="pesquisacep(this.value);">
+                </div>
+            </div>
+            <br>
+            <div class="row justify-content-center">
+                <div class="form-group col-md-3">
+                    <label for="rua">Rua</label>
+                    <input name="rua" type="text" id="rua" class="form-control" required>
+                </div>
+                <div class="form-group col-md-1">
+                    <label for="numero">Número</label>
+                    <input name="numero" type="number" id="numero" class="form-control" required>
+                </div> 
+                <div class="form-group col-md-2">
+                    <label for="complemento">Complemento</label>
+                    <input name="complemento" type="text" id="complemento" class="form-control">
+                </div>  
+            </div>
+            <br>
+            <div class="row justify-content-center">
+                <div class="form-group col-md-3">
+                    <label for="ibge">IBGE</label>
+                    <input name="ibge" type="number" id="ibge" class="form-control">
+                </div> 
+                <div class="form-group col-md-3">
+                    <label for="bairro">Bairro</label>
+                    <input name="bairro" type="text" id="bairro" class="form-control" id="bairro" required>
+                </div>
+            </div>
+            <br>
+            <div class="row justify-content-center"> 
+                <div class="form-group col-md-3">
+                    <label for="cidade">Cidade</label>
+                    <input name="cidade" type="text" class="form-control" id="cidade" required>
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="uf">Estado</label>
+                    <input name="uf" type="text" id="uf" class="form-control" required>
+                </div> 
+            </div>
+            <br>
+            <div class="row justify-content-center">  
+                <div class="form-group col-md-6">
+                    <button type="submit" class="btn btn-success tamanhoBotao">Salvar</button>
+                    <a href="index.html"><button type="button" class="btn btn-secondary tamanhoBotao">Voltar</button></a>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script src="api.js"></script>
+    <script src="alert_cadastro.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script> 
+</body>
+</html>
