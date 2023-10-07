@@ -3,7 +3,8 @@ $serverName = "localhost\SQLEXPRESS";
 $connectionOptions = array(
     "Database" => "projeto",
     "Uid" => "sa",
-    "PWD" => "sa"
+    "PWD" => "sa",
+    "CharacterSet" => ""
 );
 
 // Estabelecendo uma conexão com o SQL Server

@@ -64,7 +64,7 @@ nav li{
 }
 nav li a{
     text-decoration: none;
-    color: #fff;
+    color: #ffffff;
     font-size: 18px;
     font-weight: 500;
     padding: 8px 15px;
@@ -170,5 +170,9 @@ nav li a:hover{
     max-width: 400px; /* Ajuste a largura máxima desejada */
     margin: 0 auto; /* Centraliza horizontalmente */
   }
+
+
+  
+  
   
   
