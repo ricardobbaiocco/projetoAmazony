@@ -45,6 +45,10 @@
         .adicionar-btn {
             width: 100px;
         }
+
+        .carrinho-item {
+            font-size: 0.9rem;
+        }
     </style>
 </head>
 <body class="banner">
@@ -70,7 +74,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="login.html">Login</a>
                     </li>
-                    <li class="nav-item">
+                    <li class "nav-item">
                         <a class="nav-link" href="#">Quem Somos</a>
                     </li>
                 </ul>
@@ -81,7 +85,7 @@
         <form method="POST" action="lista_produto.php" id="pesquisa-form" name="pesquisa-form">
             <div class="row justify-content-center">
                 <div class="form-group col-md-4">
-                    <label for="produto_nome">Nome do Produto</label>
+                    <label for "produto_nome">Nome do Produto</label>
                     <input type="text" class="form-control" id="formProduto" name="formProduto">
                 </div>
             </div>
@@ -137,15 +141,14 @@
                     echo '<div class="produto-nome">' . $row['nomeProduto'] . '</div>';
                     echo '<div class="produto-descricao">' . $row['descricao'] . '</div>';
                     echo '<div class="produto-preco">R$ ' . number_format($row['valorProduto'], 2, ',', '.') . '</div>';
-
+            
                     // Adicione o campo de entrada e o botão "Adicionar ao Carrinho" em linha
                     echo '<div class="d-flex align-items-center justify-content-center">';
-                    echo '<input type="number" id="quantidade-' . $row['idProduto'] . '" placeholder="Qtd." min="1" class="mr-2 quantidade-input">';
-                    echo '<button onclick="adicionarAoCarrinho(' . $row['idProduto'] . ')" class="btn btn-primary btn-sm adicionar-btn">Adicionar</button>';
-                    echo '</div>';
-
+                    echo '<input type="number" id="quantidade-' . $row['idProduto'] . '" placeholder="Qtd." min="1" class="mr-2 quantidade-input form-control" style="width: 70px;">';
+                    echo '<button onclick="adicionarAoCarrinho(' . $row['idProduto'] . ', \'' . $row['nomeProduto'] . '\', document.getElementById(\'quantidade-' . $row['idProduto'] . '\').value, ' . $row['valorProduto'] . ')" class="btn btn-primary adicionar-btn">Adicionar</button>';
                     echo '</div>';
                     echo '</div>';
+                    echo '</div>';    
                 }
 
                 // Feche a consulta
@@ -159,5 +162,6 @@
             ?>
         </div>
     </div>
+    <script src="carrinho.js"></script>
 </body>
 </html>

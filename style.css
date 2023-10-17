@@ -171,6 +171,11 @@ nav li a:hover{
     margin: 0 auto; /* Centraliza horizontalmente */
   }
 
+  .produto-img {
+    max-width: 100px;
+    max-height: 100px;
+}
+
 
   
   

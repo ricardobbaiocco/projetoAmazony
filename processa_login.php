@@ -1,9 +1,9 @@
 <?php
-if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Verifique se os campos de CPF (usuário) e senha foram enviados
-    if (isset($_GET['usuario']) && isset($_GET['senha'])) {
-        $usuario = $_GET['usuario'];
-        $senha = $_GET['senha'];
+    if (isset($_POST['usuario']) && isset($_POST['senha'])) {
+        $usuario = $_POST['usuario'];
+        $senha = $_POST['senha'];
 
         // Conecte-se ao banco de dados
         require_once 'conexao.php'; // Substitua pelo seu arquivo de conexão
@@ -26,10 +26,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
                 // Verifique o valor da fk_catPessoa_idCatPessoa
                 if ($fk_catPessoa_idCatPessoa == 1) {
                     // Redirecionar para a página de cliente
-                    header("Location: pagina_do_cliente.php?idPessoa=$idPessoa&nome=$nome");
+                    header("Location: lista_produto.php?idPessoa=$idPessoa&nome=$nome");
                 } elseif ($fk_catPessoa_idCatPessoa == 2) {
                     // Redirecionar para a página de funcionário
-                    header("Location: pagina_do_funcionario.php?idPessoa=$idPessoa&nome=$nome");
+                    header("Location: tabela_produto.php?idPessoa=$idPessoa&nome=$nome");
                 } else {
                     // Valor desconhecido na fk_catPessoa_idCatPessoa, exibir mensagem de erro
                     echo "Erro: Categoria desconhecida";
