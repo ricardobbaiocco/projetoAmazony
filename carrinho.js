@@ -1,17 +1,15 @@
 // Array para armazenar os produtos no carrinho
 let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
-console.log("array teste");
+
 
 // Função para exibir os produtos no carrinho
 function exibirCarrinho() {
-    console.log('Exibindo carrinho...');
     const carrinhoLista = document.getElementById('carrinho-lista');
     const totalCarrinhoElement = document.getElementById('total-carrinho');
     
     if (carrinhoLista && totalCarrinhoElement) {
         carrinhoLista.innerHTML = ''; // Limpar a lista
         let total = 0;
-        console.log("teste2");
 
         carrinho.forEach((produto, index) => {
             const row = carrinhoLista.insertRow(-1); // Adiciona uma nova linha ao final da tabela
@@ -20,27 +18,27 @@ function exibirCarrinho() {
             const cellQuantidade = row.insertCell(1);
             const cellPreco = row.insertCell(2);
             const cellAcoes = row.insertCell(3);
-            console.log("teste3");
+            
             if (produto && produto.nome) {
                 cellNome.textContent = produto.nome;
             } else {
                 cellNome.textContent = "Nome do produto indisponível";
             }
-            console.log("teste4");
+           
 
             const inputQuantidade = document.createElement('input');
             inputQuantidade.type = 'number';
             inputQuantidade.value = produto.quantidade;
             inputQuantidade.addEventListener('change', (event) => atualizarQuantidade(produto, event.target.value));
             cellQuantidade.appendChild(inputQuantidade);
-            console.log("teste5");
+           
             cellPreco.textContent = `R$ ${formatarNumero(produto.preco)}`;
 
             const btnExcluir = document.createElement('button');
             btnExcluir.textContent = 'Excluir';
             btnExcluir.addEventListener('click', () => excluirItem(index)); // Passando o índice como parâmetro
             cellAcoes.appendChild(btnExcluir);
-            console.log("teste6");
+            
             total += produto.preco * produto.quantidade; // Corrigido para calcular o total corretamente
         });
 
@@ -52,7 +50,7 @@ function exibirCarrinho() {
 function formatarNumero(numero) {
     return numero.toLocaleString('pt-BR', { minimumFractionDigits: 2 });
 }
-console.log("teste");
+
 // Função para excluir um item do carrinho
 function excluirItem(index) {
     console.log('Excluindo item...');
@@ -75,7 +73,7 @@ function atualizarQuantidade(produto, novaQuantidade) {
     localStorage.setItem('carrinho', JSON.stringify(carrinho));
     exibirCarrinho();
 }
-console.log("antes de entrar no adiciona");
+
 
 // Função para adicionar produtos ao carrinho
 function adicionarAoCarrinho(id, nome, quantidade, preco) {

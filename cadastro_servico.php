@@ -26,7 +26,7 @@
                         <a class="nav-link" href="lista_produto.php">Produtos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="cadastro_servico.php">Serviços</a>
+                        <a class="nav-link" href="lista_servico.php">Serviços</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="login.html">Login</a>
@@ -40,9 +40,15 @@
     </nav>
     <div class="container formularios">
         <br>
+        <div class="alert alert-success alert-narrow" id="alert-success" style="display: none;">
+            Serviço cadastrado com sucesso!
+            </div>
+            <div class="alert alert-danger alert-narrow" id="alert-error" style="display: none;">
+            Erro ao cadastrar Serviço. Por favor, verifique os dados e tente novamente.
+            </div>
         <h2 align="center">Cadastro Serviço</h2>
         <br>
-        <form method="POST" action="cadastro_servico.php">
+        <form method="POST" action="conclui_cadastro_servico.php" enctype="multipart/form-data" id="form-cadastro-servico">
             <div class="row justify-content-center">   
                 <div class="form-group col-md-6">
                     <label for="nome">Nome do Serviço</label>
@@ -60,37 +66,12 @@
                 <div class="form-group col-md-3">
                     <label for="categoria">Categoria</label>
                     <select id="categoria" name="categoria" class="form-control col-md-6 mx-auto" required>
-                        <option value="" selected>Selecione a categoria</option>
+                        <?php require_once("busca_categoria.php"); ?>
                     </select>
                 </div>
                 
                 <!-- Script do jQuery -->
                 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-                <script>
-                    $(document).ready(function() {
-                        // Carregar categorias usando AJAX
-                        $.ajax({
-                            url: 'busca_categoria.php',
-                            type: 'GET',
-                            dataType: 'json',
-                            success: function(data) {
-                                // Preencher o select com as categorias
-                                var select = $('#categoria');
-                                $.each(data, function(index, categoria) {
-                                    select.append($('<option>', {
-                                        value: categoria.id,
-                                        text: categoria.nome_categoria
-                                    }));
-                                });
-                            },
-                            error: function() {
-                                console.log('Erro ao carregar categorias');
-                            }
-                        });
-                    });
-                </script>
-                <!-- Fim do Script do jQuery -->
-
                 <div class="form-group col-md-3">
                     <label for="foto">Foto</label>
                     <input type="file" class="form-control-file" id="foto" name="foto">
@@ -105,7 +86,7 @@
             </div>
         </form>
     </div>
-    <!-- Scripts do Bootstrap (deixe apenas uma versão) -->
+    <script src="alert_cadastro.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -69,7 +69,7 @@
                         <a class="nav-link" href="lista_produto.php">Produtos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="cadastro_servico.php">Serviços</a>
+                        <a class="nav-link" href="lista_servico.php">Serviços</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="login.html">Login</a>
@@ -135,7 +135,7 @@
             if ($resultado) {
                 // Processar os resultados da consulta aqui
                 while ($row = sqlsrv_fetch_array($resultado, SQLSRV_FETCH_ASSOC)) {
-                    echo '<div class="col-md-4">';
+                    echo '<div class="col-md-3">';
                     echo '<div class="produto-card">';
                     echo '<img src="data:image/*;base64,' . base64_encode($row['foto']) . '" class="produto-img" alt="Imagem do Produto">';
                     echo '<div class="produto-nome">' . $row['nomeProduto'] . '</div>';
