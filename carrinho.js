@@ -1,45 +1,43 @@
 // Array para armazenar os produtos no carrinho
 let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
 
-
 // Função para exibir os produtos no carrinho
 function exibirCarrinho() {
     const carrinhoLista = document.getElementById('carrinho-lista');
     const totalCarrinhoElement = document.getElementById('total-carrinho');
-    
+
     if (carrinhoLista && totalCarrinhoElement) {
         carrinhoLista.innerHTML = ''; // Limpar a lista
         let total = 0;
 
         carrinho.forEach((produto, index) => {
-            const row = carrinhoLista.insertRow(-1); // Adiciona uma nova linha ao final da tabela
+            const row = carrinhoLista.insertRow(-1);
 
             const cellNome = row.insertCell(0);
             const cellQuantidade = row.insertCell(1);
             const cellPreco = row.insertCell(2);
             const cellAcoes = row.insertCell(3);
-            
+
             if (produto && produto.nome) {
                 cellNome.textContent = produto.nome;
             } else {
                 cellNome.textContent = "Nome do produto indisponível";
             }
-           
 
             const inputQuantidade = document.createElement('input');
             inputQuantidade.type = 'number';
             inputQuantidade.value = produto.quantidade;
             inputQuantidade.addEventListener('change', (event) => atualizarQuantidade(produto, event.target.value));
             cellQuantidade.appendChild(inputQuantidade);
-           
+
             cellPreco.textContent = `R$ ${formatarNumero(produto.preco)}`;
 
             const btnExcluir = document.createElement('button');
             btnExcluir.textContent = 'Excluir';
-            btnExcluir.addEventListener('click', () => excluirItem(index)); // Passando o índice como parâmetro
+            btnExcluir.addEventListener('click', () => excluirItem(index));
             cellAcoes.appendChild(btnExcluir);
-            
-            total += produto.preco * produto.quantidade; // Corrigido para calcular o total corretamente
+
+            total += produto.preco * produto.quantidade;
         });
 
         totalCarrinhoElement.textContent = `R$ ${formatarNumero(total)}`;
@@ -73,7 +71,6 @@ function atualizarQuantidade(produto, novaQuantidade) {
     localStorage.setItem('carrinho', JSON.stringify(carrinho));
     exibirCarrinho();
 }
-
 
 // Função para adicionar produtos ao carrinho
 function adicionarAoCarrinho(id, nome, quantidade, preco) {
@@ -116,39 +113,50 @@ function adicionarAoCarrinho(id, nome, quantidade, preco) {
     exibirCarrinho();
 
     // Redirecionar para a página de carrinho após a conclusão das operações
-    
-        window.location.href = 'carrinho_compras.html';
-    
+    window.location.href = 'carrinho_compras.html';
 }
-
-
 
 // Obter a lista de itens do carrinho
 const carrinhoLista = document.getElementById('carrinho-lista');
 const totalCarrinho = document.getElementById('total-carrinho').innerText;
 
+// Debug - Verificar o conteúdo do carrinho antes de enviar para o PHP
+console.log('Conteúdo do carrinho: ', carrinhoLista.innerHTML);
+console.log('Total do carrinho: ', totalCarrinho);
+
 // Criar um objeto com os dados do carrinho
 const dadosCarrinho = {
-    items: carrinhoLista.innerHTML,
+    produtos: carrinho,
     total: totalCarrinho
 };
 
+// Debug - Verificar o objeto com os dados do carrinho
+console.log('Objeto com os dados do carrinho: ', dadosCarrinho);
+
+function enviarDadosParaPHP(url, dados) {
+    console.log("Enviando dados para o PHP:", dados); // Adiciona uma mensagem ao console com os dados a serem enviados
+
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(dados)
+    })
+    .then(response => response.text())
+    .then(data => {
+        console.log("Resposta do PHP:", data); // Adiciona uma mensagem ao console com a resposta do PHP
+    })
+    .catch(error => {
+        console.error('Erro:', error);
+    });
+}
+;
 
 
-// Enviar os dados para o PHP usando AJAX
-const xhr = new XMLHttpRequest();
-xhr.open('POST', 'finalizar_pedido.php', true);
-xhr.setRequestHeader('Content-Type', 'application/json');
 
-xhr.onreadystatechange = function () {
-    if (xhr.readyState === 4 && xhr.status === 200) {
-        console.log(xhr.responseText); // Resposta do servidor
-    }
-};
-
-// Converter os dados para JSON antes de enviar
-const dadosJSON = JSON.stringify(dadosCarrinho);
-xhr.send(dadosJSON);
+// Enviar os dados para o PHP ao finalizar o carrinho
+enviarDadosParaPHP('finalizar_pedido.php', dadosCarrinho);
 
 // Inicializar a exibição do carrinho
 exibirCarrinho();

@@ -61,7 +61,7 @@
             </div>
         </div>
         <form method="post" action="finalizar_pedido.php" id="carrinho-form">
-            <input type="hidden" name="carrinho" value='<?php echo json_encode($carrinho); ?>'>
+            <input type="hidden" name="carrinho" >
             <button type="submit" name="submit" id="finalizar-compra">Finalizar Compra</button>
         </form>
         <div id="querPedido"></div>
