@@ -5,7 +5,7 @@ if ($conexao) {
    
 
     // Consulta SQL para listar as categorias
-    $sql = "SELECT nomeCategoria FROM categoria";
+    $sql = "SELECT nomeCategoria FROM categoria ORDER BY nomeCategoria";
 
     // Executar a consulta
     $query = sqlsrv_query($conexao, $sql);

@@ -1,6 +1,7 @@
 <?php
 // Estabelecer conexão com o banco de dados
 require_once 'conexao.php';
+sqlsrv_query($conexao, "SET NAMES 'UTF8'");
 
 $response = array();
 
@@ -18,11 +19,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $bairro = $_POST['bairro'];
   $cidade = $_POST['cidade'];
   $uf = $_POST['uf'];
+  $senha = $_POST['senha'];
 
   // Preparar a consulta SQL para inserir os dados no banco de dados
   //categoria padrão para cliente
   $idCategoriaPadrao = 1;
-  $query = "INSERT INTO pessoa (nome, cpf, nascimento, cep, rua, numero, complemento, ibge, bairro, cidade, estado, fk_catPessoa_idCatPessoa) VALUES ('$nome', '$cpf', '$dtnascimento', '$cep', '$rua', '$numero', '$complemento', '$ibge', '$bairro', '$cidade', '$uf', $idCategoriaPadrao)";
+  $query = "INSERT INTO pessoa (nome, cpf, nascimento, cep, rua, numero, complemento, ibge, bairro, cidade, estado, senha, fk_catPessoa_idCatPessoa) VALUES ('$nome', '$cpf', '$dtnascimento', '$cep', '$rua', '$numero', '$complemento', '$ibge', '$bairro', '$cidade', '$uf','$senha', $idCategoriaPadrao)";
 
   // Executar a consulta SQL
   $stmt = sqlsrv_query($conexao, $query);

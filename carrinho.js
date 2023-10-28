@@ -141,17 +141,16 @@ function enviarDadosParaPHP(url, dados) {
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(dados)
+        body: JSON.stringify({array: dados})
     })
     .then(response => response.text())
-    .then(data => {
-        console.log("Resposta do PHP:", data); // Adiciona uma mensagem ao console com a resposta do PHP
+    .then(post => {
+        console.log("Resposta do PHP:", post); // Adiciona uma mensagem ao console com a resposta do PHP
     })
     .catch(error => {
         console.error('Erro:', error);
     });
-}
-;
+};
 
 
 

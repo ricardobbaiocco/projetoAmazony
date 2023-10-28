@@ -22,6 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit; // Saia do script em caso de erro.
     }
 
+   
     // Defina o diretório de upload (crie-o se não existir)
     $uploadDirectory = 'uploads/';
     if (!is_dir($uploadDirectory)) {
@@ -43,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (move_uploaded_file($tempFile, $destFile)) {
                 // Lê o conteúdo do arquivo de imagem como binário
                 $fotoBinario = file_get_contents($destFile);
-
+                
                 // Preparar a consulta SQL para inserir os dados no banco de dados
                 $query = "INSERT INTO produto (nomeProduto, descricao, valorProduto, fk_categoria_idCategoria, foto) VALUES (?, ?, ?, ?, CONVERT(varbinary(max), ?))";
                 
@@ -59,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $response['message'] = 'Produto cadastrado com sucesso.';
                    
                     echo json_encode($response);
-                    die("Chega aqui no segundo teste");
+                   
                     exit;
                 } else {
                     // Resposta JSON para o JavaScript em caso de erro
