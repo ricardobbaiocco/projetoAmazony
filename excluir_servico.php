@@ -2,11 +2,11 @@
 require_once 'conexao.php';
 
 if (isset($_GET['id']) && !empty($_GET['id'])) {
-    $idProduto = $_GET['id'];
+    $idServico = $_GET['id'];
 
     // Consulta SQL para excluir o produto com base no ID
-    $query = "DELETE FROM produto WHERE idProduto = ?";
-    $params = array(&$idProduto);
+    $query = "DELETE FROM servico WHERE idServico = ?";
+    $params = array(&$idServico);
     $resultado = sqlsrv_query($conexao, $query, $params);
 
     if ($resultado) {
@@ -15,6 +15,6 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
         echo json_encode(array('success' => false, 'error' => print_r(sqlsrv_errors(), true)));
     }
 } else {
-    echo '<div class="alert alert-danger" role="alert">ID do produto não fornecido</div>';
+    echo '<div class="alert alert-danger" role="alert">ID do servico não fornecido</div>';
 }
 ?>

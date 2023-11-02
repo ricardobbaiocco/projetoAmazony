@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Tabela de Produtos</title>
+    <title>Tabela de Serviços</title>
     <link rel="icon" href="imagens/logo.png" type="image/png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
@@ -39,10 +39,12 @@
         </div>
     </nav>
     <div class="container formularios">
-        <h2>Tabela de Produtos</h2>
+    <br>
+        <h2>Tabela de Serviços</h2>
+        <br> 
         <div class="row justify-content">
             <div class="form-group col-md-3">
-                <a href="cadastro_produto.php" class="btn btn-success tamanhoBotao">Novo cadastro</a>
+                <a href="cadastro_servico.php" class="btn btn-success tamanhoBotao">Novo cadastro</a>
             </div>
         </div>
         <br>
@@ -51,9 +53,8 @@
                 <thead>
                     <tr>
                         <th>Imagem</th>
-                        <th>Nome do Produto</th>
+                        <th>Nome do Serviço</th>
                         <th>Descrição</th>
-                        <th>Valor</th>
                         <th>Categoria</th>
                         <th>Ações</th>
                     </tr>
@@ -64,9 +65,9 @@
                     require_once 'conexao.php';
 
                     // Consulta SQL para obter os produtos e suas categorias
-                    $query = "SELECT p.idProduto, p.nomeProduto, p.descricao, p.valorProduto, c.nomeCategoria, p.foto
-                        FROM produto p
-                        JOIN categoria c ON p.fk_categoria_idCategoria = c.idCategoria";
+                    $query = "SELECT servico.idServico, servico.nomeServico, servico.descricao, categoria.nomeCategoria, servico.foto
+                        FROM servico 
+                        JOIN categoria  ON servico.fk_categoria_idCategoria = categoria.idCategoria";
 
                     $resultado = sqlsrv_query($conexao, $query);
 
@@ -75,14 +76,13 @@
                         // Processar os resultados da consulta aqui
                         while ($row = sqlsrv_fetch_array($resultado, SQLSRV_FETCH_ASSOC)) {
                             echo '<tr>';
-                            echo '<td><img src="data:image/*;base64,' . base64_encode($row['foto']) . '" class="produto-img" alt="Imagem do Produto"></td>';
-                            echo '<td>' . $row['nomeProduto'] . '</td>';
+                            echo '<td><img src="data:image/*;base64,' . base64_encode($row['foto']) . '" class="produto-img" alt="Imagem do Serviço"></td>';
+                            echo '<td>' . $row['nomeServico'] . '</td>';
                             echo '<td>' . $row['descricao'] . '</td>';
-                            echo '<td>R$ ' . number_format($row['valorProduto'], 2, ',', '.') . '</td>';
                             echo '<td>' . $row['nomeCategoria'] . '</td>';
                             echo '<td>';
-                            echo '<a href="editar_produto.php?id=' . $row['idProduto'] . '" class="btn btn-primary">Editar</a>';
-                            echo '<a href="excluir_produto.php?id=' . $row['idProduto'] . '" class="btn btn-danger">Excluir</a>';
+                            echo '<a href="editar_servico.php?id=' . $row['idServico'] . '" class="btn btn-primary">Editar</a>';
+                            echo '<a href="excluir_servico.php?id=' . $row['idServico'] . '" class="btn btn-danger">Excluir</a>';
                             echo '</td>';
                             echo '</tr>';
                         }
@@ -100,8 +100,6 @@
             </table>
         </div>
     </div>
-  
-</script>
-
+    
 </body>
 </html>

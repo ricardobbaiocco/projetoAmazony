@@ -39,6 +39,12 @@
         </div>
     </nav>
     <div class="container formularios">
+        <div class="alert alert-success alert-narrow" id="alert-success-produto" style="display: none;">
+            Produto cadastrado com sucesso!
+        </div>
+        <div class="alert alert-danger alert-narrow" id="alert-error-produto" style="display: none;">
+            Erro ao cadastrar produto.
+        </div>
         <br>
         <div id="alert-message" class="alert" style="display: none;"></div>
         <h2 align="center">Cadastro Produto</h2>
@@ -86,6 +92,7 @@
     </div>
     <!--<script src="busca_categoria.js"></script>-->
     
+    <script src="alert_cadastro_prod.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script> 

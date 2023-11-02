@@ -38,14 +38,16 @@
             </div>
         </div>
     </nav>
+    <br>
     <div class="container formularios">
-        <br>
-        <div class="alert alert-success alert-narrow" id="alert-success" style="display: none;">
+    <div class="alert alert-success alert-narrow" id="alert-success-servico" style="display: none;">
             Serviço cadastrado com sucesso!
-            </div>
-            <div class="alert alert-danger alert-narrow" id="alert-error" style="display: none;">
-            Erro ao cadastrar Serviço. Por favor, verifique os dados e tente novamente.
-            </div>
+        </div>
+        <div class="alert alert-danger alert-narrow" id="alert-error-servico" style="display: none;">
+            Erro ao cadastrar serviço!
+        </div>
+        <br>
+        <div id="alert-message" class="alert" style="display: none;"></div>
         <h2 align="center">Cadastro Serviço</h2>
         <br>
         <form method="POST" action="conclui_cadastro_servico.php" enctype="multipart/form-data" id="form-cadastro-servico">
@@ -86,7 +88,7 @@
             </div>
         </form>
     </div>
-    <script src="alert_cadastro.js"></script>
+    <script src="alert_cadastro_servico.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -60,7 +60,7 @@ print_r($pedidoArray);
     echo "Dados do carrinho não recebidos corretamente.";
 } else {
     echo "Pedido finalizado com sucesso!";
-    header("Location: lista_produto.php");
+    header("Location: finalizar_compra.html");
     exit();
    
 }

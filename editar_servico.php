@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Editar Produto</title>
+    <title>Editar Serviço</title>
     <link rel="icon" href="imagens/logo.png" type="image/png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
@@ -39,54 +39,54 @@
         </div>
     </nav>
     <div class="container formularios">
-    <div class="alert alert-success alert-narrow" id="alert-success-produto" style="display: none;">
-            Produto alterado com sucesso!
-        </div>
-        <div class="alert alert-danger alert-narrow" id="alert-error-produto" style="display: none;">
-            Erro ao editar produto.
-        </div>
+    <div class="alert alert-success alert-narrow" id="alert-success-servico" style="display: none;">
+        Serviço alterado com sucesso!
+    </div>
+    <div class="alert alert-danger alert-narrow" id="alert-error-servico" style="display: none;">
+        Erro ao editar serviço!
+    </div>
         <br>
         <div id="alert-message" class="alert" style="display: none;"></div>
     <?php
     require_once('conexao.php');
     if (isset($_GET['id']) && !empty($_GET['id'])) {
         // Faça a limpeza do ID
-        $idProduto = $_GET['id'];
+        $idServico = $_GET['id'];
 
-        // Consulta SQL para obter as informações do produto
-        $query = "SELECT * FROM produto WHERE idProduto = ?";
-        $params = array(&$idProduto);
+        // Consulta SQL para obter as informações do servico
+        $query = "SELECT * FROM servico WHERE idServico = ?";
+        $params = array(&$idServico);
         $resultado = sqlsrv_query($conexao, $query, $params);
 
-        if ($resultado && $produto = sqlsrv_fetch_array($resultado, SQLSRV_FETCH_ASSOC)) {
+        if ($resultado && $servico = sqlsrv_fetch_array($resultado, SQLSRV_FETCH_ASSOC)) {
     ?>
-            <form method="POST" action="atualiza_produto.php" enctype="multipart/form-data" id="form-update-produto">
-                <input type="hidden" name="id" value="<?php echo $idProduto; ?>">
+            <form method="POST" action="atualiza_servico.php" enctype="multipart/form-data" id="form-update-servico">
+                <input type="hidden" name="id" value="<?php echo $idServico; ?>">
                 <div class="row justify-content-center">
                     <div class="form-group col-md-6">
-                        <label for="nome">Nome do Produto</label>
-                        <input type="text" class="form-control" id="nome" name="nome" value="<?php echo $produto['nomeProduto']; ?>" required>
+                        <label for="nome">Nome do Servico</label>
+                        <input type="text" class="form-control" id="nome" name="nome" value="<?php echo $servico['nomeServico']; ?>" required>
                     </div>
                 </div>
                 <div class="row justify-content-center">
                     <div class="form-group col-md-6">
                         <label for="descricao">Descrição</label>
-                        <textarea id="descricao" name="descricao" class="form-control" rows="4"><?php echo $produto['descricao']; ?></textarea>
+                        <textarea id="descricao" name="descricao" class="form-control" rows="4"><?php echo $servico['descricao']; ?></textarea>
                     </div>
                 </div>
                 <div class="row justify-content-center">
-                    <div class="form-group col-md-3">
+                    <div class="form-group col-md-6">
                         <label for="categoria">Categoria</label>
                         <select id="categoria" name="categoria" class="form-control col-md-6 mx-auto" required>
                             <?php
                             require_once('conexao.php');
                             if (isset($_GET['id']) && !empty($_GET['id'])) {
                                 $idProduto = $_GET['id'];
-                                $query = "SELECT * FROM produto WHERE idProduto = ?";
-                                $params = array(&$idProduto);
+                                $query = "SELECT * FROM servico WHERE idServico = ?";
+                                $params = array(&$idServico);
                                 $resultado = sqlsrv_query($conexao, $query, $params);
 
-                                if ($resultado && $produto = sqlsrv_fetch_array($resultado, SQLSRV_FETCH_ASSOC)) {
+                                if ($resultado && $servico = sqlsrv_fetch_array($resultado, SQLSRV_FETCH_ASSOC)) {
                                     $queryCategoria = "SELECT idCategoria, nomeCategoria FROM categoria";
                                     $resultadoCategoria = sqlsrv_query($conexao, $queryCategoria);
                                     if ($resultadoCategoria) {
@@ -101,23 +101,19 @@
                                         echo "Erro na consulta de categorias: " . print_r(sqlsrv_errors(), true);
                                     }
                                 } else {
-                                    echo "Erro na consulta de produto: " . print_r(sqlsrv_errors(), true);
+                                    echo "Erro na consulta de serviço: " . print_r(sqlsrv_errors(), true);
                                 }
                             }
                             ?>
                         </select>
                     </div>
-
-                    <div class="form-group col-md-3">
-                        <label for="valor">Valor</label>
-                        <input type="text" class="form-control" id="valor" name="valor" required value="<?php echo $produto['valorProduto']; ?>">
-                    </div>
+                    
                 </div>
                 <br>
                 <div class="row justify-content-center">
                     <div class="form-group col-md-6">
                         <label for="foto">Foto</label>
-                        <img src="data:image/*;base64,<?php echo base64_encode($produto['foto']); ?>" class="produto-img" alt="Imagem do Produto">
+                        <img src="data:image/*;base64,<?php echo base64_encode($servico['foto']); ?>" class="produto-img" alt="Imagem do Serviço">
                         <input type="file" class="form-control-file" id="foto" name="foto">
                     </div>
                 </div>
@@ -131,19 +127,19 @@
             </form>
     <?php
         } else {
-            echo '<div class="alert alert-danger" role="alert">Produto não encontrado</div>';
+            echo '<div class="alert alert-danger" role="alert">Serviço não encontrado</div>';
         }
     } else {
-        echo '<div class="alert alert-danger" role="alert">ID do produto não fornecido</div>';
+        echo '<div class="alert alert-danger" role="alert">ID do serviço não fornecido</div>';
     }
     ?>
 </div>
 
     <!--<script src="busca_categoria.js"></script>-->
-   <script src="alert_update_produto.js"></script>
+    <script src="alert_update_servico.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script> 
-  
+   
 </body>
 </html>
