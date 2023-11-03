@@ -20,19 +20,30 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="index.html">Página Inicial</a>
+                        <a class="nav-link active" href="pagina_funcionario.html">Página do Funcionário</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="lista_produto.php">Produtos</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Produto
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="cadastro_produto.php">Adicionar</a></li>
+                            <li><a class="dropdown-item" href="tabela_produto.php">Alterar</a></li>
+                            <li><a class="dropdown-item" href="lista_produto.php">Listar</a></li>
+                        </ul>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="lista_servico.php">Serviços</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Serviço
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="cadastro_servico.php">Adicionar</a></li>
+                            <li><a class="dropdown-item" href="tabela_servico.php">Alterar</a></li>
+                            <li><a class="dropdown-item" href="lista_servico.php">Listar</a></li>
+                        </ul>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="login.html">Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Quem Somos</a>
                     </li>
                 </ul>
             </div>
