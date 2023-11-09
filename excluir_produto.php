@@ -10,11 +10,14 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
     $resultado = sqlsrv_query($conexao, $query, $params);
 
     if ($resultado) {
-        echo json_encode(array('success' => true));
+        $response = array('success' => true, 'message' => 'Produto excluído com sucesso.');
+        echo json_encode($response);
     } else {
-        echo json_encode(array('success' => false, 'error' => print_r(sqlsrv_errors(), true)));
+        $response = array('success' => false, 'message' => 'Erro ao excluir o produto.');
+        echo json_encode($response);
     }
 } else {
-    echo '<div class="alert alert-danger" role="alert">ID do produto não fornecido</div>';
+    $response = array('success' => false, 'message' => 'ID do produto não fornecido.');
+    echo json_encode($response);
 }
 ?>

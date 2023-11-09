@@ -1,3 +1,7 @@
+<?php
+// Inicie a sessão no início do script, antes de qualquer saída de conteúdo
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -44,6 +48,9 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="login.html">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="logout.php">Sair</a>
                     </li>
                 </ul>
             </div>
@@ -111,6 +118,8 @@
             </table>
         </div>
     </div>
-    
+    <script src="pagina_protegida.php"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

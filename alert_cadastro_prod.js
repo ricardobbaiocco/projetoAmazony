@@ -22,15 +22,15 @@ document.addEventListener("DOMContentLoaded", function() {
         .then((data) => {
             console.log("opa");
             if (data.success) {
-            console.log("primeiro");
+            
             // Exibir alerta de sucesso para o cadastro de produto
             alertSuccessProduto.style.display = "block";
-            console.log("Aqui cheguei");
+            console.log("Aqui cheguei nada");
             alertErrorProduto.style.display = "none";
             // Redirecionar para outra página após um breve atraso
             setTimeout(function() {
-                window.location.href = "lista_produto.php";
-            }, 5000); // Redirecionar após 5 segundos
+                window.location.href = "tabela_produto.php";
+            }, 3000); // Redirecionar após 3 segundos
             } else {
             // Exibir alerta de erro para o cadastro de produto
             alertErrorProduto.style.display = "block";

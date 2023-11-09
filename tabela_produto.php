@@ -1,3 +1,7 @@
+<?php
+// Inicie a sessão no início do script, antes de qualquer saída de conteúdo
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -45,11 +49,22 @@
                     <li class="nav-item">
                         <a class="nav-link" href="login.html">Login</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="logout.php">Sair</a>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
     <div class="container formularios">
+    <div class="alert alert-success alert-narrow" id="alert-success-produto" style="display: none;">
+            Produto excluído com sucesso!
+        </div>
+        <div class="alert alert-danger alert-narrow" id="alert-error-produto" style="display: none;">
+            Erro ao excluir produto.
+        </div>
+        <br>
+        <div id="alert-message" class="alert" style="display: none;"></div>
         <h2>Tabela de Produtos</h2>
         <div class="row justify-content">
             <div class="form-group col-md-3">
@@ -71,6 +86,9 @@
                 </thead>
                 <tbody>
                     <?php
+
+                     
+
                     // Inclua a conexão com o banco de dados
                     require_once 'conexao.php';
 
@@ -113,6 +131,10 @@
     </div>
   
 </script>
-
+<script src="alert_excluir_produto.js"></script>
+<script src="pagina_protegida.php"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -45,6 +45,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="login.html">Login</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="logout.php">Sair</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -59,6 +62,15 @@
         <br>
         <div id="alert-message" class="alert" style="display: none;"></div>
     <?php
+
+    session_start();
+
+    // Verifique se o usuário não está autenticado
+    if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
+        // O usuário não está autenticado, redirecione-o para a página de login
+        header("Location: login.html");
+        exit();
+    }
     require_once('conexao.php');
     if (isset($_GET['id']) && !empty($_GET['id'])) {
         // Faça a limpeza do ID

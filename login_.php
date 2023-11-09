@@ -9,9 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     require_once 'conexao.php';
 
     // Consulta SQL para verificar o usuário e a senha
-    $query = "SELECT idPessoa, nome, fk_catPessoa_idCatPessoa FROM pessoa WHERE cpf = ? AND senha = ? AND fk_catPessoa_idCatPessoa = 1";
-
-    // Use a função sqlsrv_query com os parâmetros diretamente, não é necessário criar um array de parâmetros.
+    $query = "SELECT idPessoa, nome, fk_catPessoa_idCatPessoa FROM pessoa WHERE cpf = ? AND senha = ?";
     $resultado = sqlsrv_query($conexao, $query, array($usuario, $senha));
 
     if ($resultado === false) {
@@ -22,6 +20,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Inicie a sessão
         session_start();
 
+        // Obtenha o valor de fk_catPessoa_idCatPessoa
+        $row = sqlsrv_fetch_array($resultado, SQLSRV_FETCH_ASSOC);
+        $categoriaPessoa = $row['fk_catPessoa_idCatPessoa'];
+
         // Armazene informações do usuário na sessão (ajuste isso conforme sua necessidade)
         $_SESSION['logged_in'] = true;
         $_SESSION['username'] = $usuario;
@@ -29,6 +31,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $response['success'] = true;
         $response['message'] = 'Sucesso no login';
+
+        // Verifique a categoria do usuário e redirecione com base nisso
+        if ($categoriaPessoa == 1) {
+            $response['redirect'] = 'index.html'; // Redirecionar para a página 1
+        } elseif ($categoriaPessoa == 2) {
+            $response['redirect'] = 'pagina_funcionario.html'; // Redirecionar para a página 2
+        }
     } else {
         $response['success'] = false;
         $response['message'] = 'Erro ao fazer login';

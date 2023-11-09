@@ -107,13 +107,13 @@
             }
 
             // Exemplo de consulta SQL com JOIN entre as tabelas 'produto' e 'categoria'
-            $query = "SELECT s.idServico, s.nomeServico, s.descricao, c.nomeCategoria, s.foto
-            FROM servico s
-            JOIN categoria c ON s.fk_categoria_idCategoria = c.idCategoria";
+            $query = "SELECT servico.idServico, servico.nomeServico, servico.descricao, categoria.nomeCategoria, servico.foto
+            FROM servico 
+            JOIN categoria  ON servico.fk_categoria_idCategoria = categoria.idCategoria";
 
             // Aplica o filtro se o campo de pesquisa não estiver vazio
             if (!empty($pesquisa)) {
-                $query .= " WHERE s.nomeServico LIKE '%' + ? + '%'";
+                $query .= " WHERE servico.nomeServico LIKE '%' + ? + '%'";
                 // Adicione $pesquisa ao array $params
                 $params[] = &$pesquisa;
             }
