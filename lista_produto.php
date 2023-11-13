@@ -120,16 +120,18 @@
             }
 
             // Exemplo de consulta SQL com JOIN entre as tabelas 'produto' e 'categoria'
-            $query = "SELECT p.idProduto, p.nomeProduto, p.descricao, p.valorProduto, c.nomeCategoria, p.foto
-            FROM produto p
-            JOIN categoria c ON p.fk_categoria_idCategoria = c.idCategoria";
+            $query = "SELECT produto.idProduto, produto.nomeProduto, produto.descricao, produto.valorProduto, categoria.nomeCategoria, produto.foto
+            FROM produto 
+           INNER JOIN categoria  ON produto.fk_categoria_idCategoria = categoria.idCategoria";
 
             // Aplica o filtro se o campo de pesquisa não estiver vazio
             if (!empty($pesquisa)) {
-                $query .= " WHERE p.nomeProduto LIKE '%' + ? + '%'";
+                $query .= " WHERE produto.nomeProduto LIKE '%' + ? + '%'";
                 // Adicione $pesquisa ao array $params
                 $params[] = &$pesquisa;
             }
+            // Adiciona a cláusula ORDER BY para ordenar pelo nome do produto
+            $query .= " ORDER BY produto.nomeProduto";
 
             // Executa a consulta SQL
             $resultado = sqlsrv_query($conexao, $query, $params);

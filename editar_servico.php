@@ -109,7 +109,7 @@
                                 $resultado = sqlsrv_query($conexao, $query, $params);
 
                                 if ($resultado && $servico = sqlsrv_fetch_array($resultado, SQLSRV_FETCH_ASSOC)) {
-                                    $queryCategoria = "SELECT idCategoria, nomeCategoria FROM categoria";
+                                    $queryCategoria = "SELECT idCategoria, nomeCategoria FROM categoria ORDER BY nomeCategoria";
                                     $resultadoCategoria = sqlsrv_query($conexao, $queryCategoria);
                                     if ($resultadoCategoria) {
                                         while ($categoria = sqlsrv_fetch_array($resultadoCategoria, SQLSRV_FETCH_ASSOC)) {

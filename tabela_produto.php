@@ -93,9 +93,9 @@ session_start();
                     require_once 'conexao.php';
 
                     // Consulta SQL para obter os produtos e suas categorias
-                    $query = "SELECT p.idProduto, p.nomeProduto, p.descricao, p.valorProduto, c.nomeCategoria, p.foto
-                        FROM produto p
-                        JOIN categoria c ON p.fk_categoria_idCategoria = c.idCategoria";
+                    $query = "SELECT produto.idProduto, produto.nomeProduto, produto.descricao, produto.valorProduto, categoria.nomeCategoria, produto.foto
+                        FROM produto
+                        JOIN categoria  ON produto.fk_categoria_idCategoria = categoria.idCategoria ORDER BY produto.nomeProduto";
 
                     $resultado = sqlsrv_query($conexao, $query);
 

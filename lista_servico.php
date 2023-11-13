@@ -117,6 +117,8 @@
                 // Adicione $pesquisa ao array $params
                 $params[] = &$pesquisa;
             }
+            // Adiciona a cláusula ORDER BY para ordenar pelo nome do produto
+            $query .= " ORDER BY servico.nomeServico";
 
             // Executa a consulta SQL
             $resultado = sqlsrv_query($conexao, $query, $params);
@@ -126,18 +128,22 @@
                 // Processar os resultados da consulta aqui
                 while ($row = sqlsrv_fetch_array($resultado, SQLSRV_FETCH_ASSOC)) {
                     echo '<div class="col-md-3">';
-                    echo '<div class="servico-card">';
+                    echo '<div class="servico-card d-flex flex-column">';
                     echo '<img src="data:image/*;base64,' . base64_encode($row['foto']) . '" class="servico-img" alt="Imagem do Servico">';
                     echo '<div class="servico-nome">' . $row['nomeServico'] . '</div>';
                     echo '<div class="servico-descricao">' . $row['descricao'] . '</div>';
+                                   
+                    $numeroWhatsApp = '5554991488164'; // Direcionamento para o whatsApp da Empresa
+                    $mensagem = 'Vi no site, tenho interesse';
+                    echo '<div class="mt-auto">';
+                    echo '<a href="http://api.whatsapp.com/send?phone=' . $numeroWhatsApp .  '&text=' . urlencode($mensagem) . '" class="btn btn-primary adicionar-btn">';
+                    echo '<i class="fa fa-whatsapp"></i> Solicitar';
+                    echo '</a>';
+                    echo '</div>';
+                    
                    
-                    // Adicione o campo de entrada e o botão "Adicionar ao Carrinho" em linha
-                    echo '<div class="d-flex align-items-center justify-content-center">';
-                    echo '<button onclick="adicionarAoCarrinho(' . $row['idServico'] . ', \'' . $row['nomeServico'] . ')" class="btn btn-primary adicionar-btn">Adicionar</button>';
-                    echo '</div>';
-                    echo '</div>';
+                echo '</div>';
                     echo '</div>'; 
-
                 }
 
                 // Feche a consulta

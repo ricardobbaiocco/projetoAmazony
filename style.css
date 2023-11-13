@@ -176,6 +176,33 @@ nav li a:hover{
     max-height: 100px;
 }
 
+.text-left-custom {
+    text-align: left;
+    font-size:x-small;
+}
+
+.whatsapp-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25d366;
+    color: #fff;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+}
+
+.whatsapp-icon:hover {
+    background-color: #128c7e;
+}
+
+.whatsapp-icon i {
+    font-size: 24px;
+}
+
+
 
   
   
