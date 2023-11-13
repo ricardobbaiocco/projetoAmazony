@@ -134,7 +134,7 @@
                     echo '<div class="servico-descricao">' . $row['descricao'] . '</div>';
                                    
                     $numeroWhatsApp = '5554991488164'; // Direcionamento para o whatsApp da Empresa
-                    $mensagem = 'Vi no site, tenho interesse';
+                    $mensagem = 'Olá,vi no site e tenho interesse!';
                     echo '<div class="mt-auto">';
                     echo '<a href="http://api.whatsapp.com/send?phone=' . $numeroWhatsApp .  '&text=' . urlencode($mensagem) . '" class="btn btn-primary adicionar-btn">';
                     echo '<i class="fa fa-whatsapp"></i> Solicitar';
