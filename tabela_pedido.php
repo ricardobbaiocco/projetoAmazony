@@ -16,7 +16,10 @@ session_start();
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <div class="logo">
-                <a href="index.html">Amazony Info</a>
+            <a class="navbar-brand" href="index.html">Amazony Info</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
+        </button>
             </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>

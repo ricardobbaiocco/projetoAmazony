@@ -1,79 +1,143 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
-    <title>Amazony Info</title>
-    <link rel="icon" href="imagens/logo.png" type="image/png">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+  <title>Amazony Info</title>
+  <link rel="icon" href="imagens/logo.png" type="image/png">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f8f9fa;
+    }
+
+    .hero-section {
+      background: url('../projetoAmazony-main/imagens/camera.png') center/cover no-repeat;
+      color: #000000;
+      text-align: center;
+      padding: 100px 0;
+      height: 70vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .hero-section h1 {
+      font-size: 4em;
+      margin-bottom: 20px;
+      color: #ffffff;
+      background-color: #00000081;
+    }
+
+    .hero-section p {
+      font-size: 1.2em;
+      margin-bottom: 40px;
+      color: #ffffff;
+      background-color: #00000081;
+    }
+
+    .about-company {
+      padding: 50px 0;
+      text-align: center;
+    }
+
+    .about-company h2 {
+      font-size: 2.5em;
+      margin-bottom: 30px;
+      color: #0e2cc1;
+    }
+
+    .about-company p {
+      font-size: 1.1em;
+      color: #495057;
+    }
+
+    footer {
+      background-color: #6f8ca98c;
+      color: #000000;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    .navbar {
+      background-color: #386685d2;
+      min-height: 50px; /* Defina a altura desejada para a navegação */
+    }
+  </style>
 </head>
-<body class="banner">
-  <a href="https://api.whatsapp.com/send?l=pt&amp;phone=5554991488164"><img 
-    src="https://i.imgur.com/ryESuZ5.png" style="height:64px; position:fixed; bottom: 25px; right: 
-    25px; z-index:99999;" data-selector="img">
-</a>
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-        <div class="container">
-            <div class="logo">
-                <a href="index.html">Amazony Info</a>
-            </div>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="index.html">Página Inicial</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="lista_produto.php">Produtos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="lista_servico.php">Serviços</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="login.html">Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="quemsomos.html">Quem Somos</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <div id="carouselExample" class="carousel slide" data-ride="carousel" data-interval="2000">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="imagens/camera.png" class="d-block w-100" alt="...">
-          </div> <div class="carousel-item">
-            <img src="imagens/assistencia-tecnica.jpg" class="d-block w-100" alt="...">
-          </div>
-          <div class="carousel-item">
-            <img src="imagens/rede.png" class="d-block w-100" alt="...">
-          </div>
-          <div class="carousel-item">
-            <img src="imagens/roteador.jpg" class="d-block w-100" alt="...">
-          </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Voltar</span>
+<body>
+  <div style="position: fixed; bottom: 25px; right: 25px; z-index: 99999; text-align: center;">
+    <a href="https://api.whatsapp.com/send?l=pt&amp;phone=5554991488164">
+        <img src="https://i.imgur.com/ryESuZ5.png" style="height: 64px;" data-selector="img">
+    </a>
+    <div style="margin-top: 5px;">Dúvidas?</div>
+</div>
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">Amazony Info</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Avançar</span>
-        </button>
-      </div>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item <?php echo ($paginaAtual == 'index.html') ? 'active' : ''; ?>">
+                    <a class="nav-link" href="index.html">Página Inicial</a>
+                </li>
+                <li class="nav-item <?php echo ($paginaAtual == 'lista_produto.php') ? 'active' : ''; ?>">
+                    <a class="nav-link" href="lista_produto.php">Produtos</a>
+                </li>
+                <li class="nav-item <?php echo ($paginaAtual == 'lista_servico.php') ? 'active' : ''; ?>">
+                    <a class="nav-link" href="lista_servico.php">Serviços</a>
+                </li>
+                <li class="nav-item <?php echo ($paginaAtual == 'login.html') ? 'active' : ''; ?>">
+                    <a class="nav-link" href="login.html">Login</a>
+                </li>
+                <li class="nav-item <?php echo ($paginaAtual == 'quemsomos.html') ? 'active' : ''; ?>">
+                    <a class="nav-link" href="quemsomos.html">Quem Somos</a>
+                </li>
+                <li class="nav-item <?php echo ($paginaAtual == 'logout.php') ? 'active' : ''; ?>">
+                    <a class="nav-link" href="logout.php">Sair</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-       $(document).ready(function() {
-        $('#carouselExampleInterval').carousel();
-      });
-    </script>
-   
+
+  <!-- Seção Herói -->
+  <section class="hero-section">
+    <div class="container">
+      <h1>Bem-vindo à Amazony Info</h1>
+      <p>Sua fonte confiável para a mais recente tecnologia e inovação.</p>
+    </div>
+  </section>
+
+  <!-- Seção Sobre a Empresa -->
+  <section class="about-company">
+    <div class="container">
+      <h2>Sobre a Amazony Info</h2>
+      <p>A Amazony Info é líder no fornecimento de tecnologia de ponta. Oferecemos uma ampla gama de produtos e
+        soluções,
+        desde dispositivos eletrônicos até serviços de suporte técnico de alta qualidade. Nosso objetivo é proporcionar
+        a
+        melhor experiência tecnológica aos nossos clientes, garantindo inovação e confiabilidade.</p>
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer>
+    &copy; 2023 Amazony Info. Todos os direitos reservados.
+  </footer>
+
+  <!-- Seu código JavaScript e scripts adicionais aqui -->
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
+
 </html>

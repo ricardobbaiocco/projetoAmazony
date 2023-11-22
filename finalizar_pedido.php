@@ -1,67 +1,50 @@
 <?php
-// Inclua o arquivo de conexão
-require_once 'conexao.php';
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['carrinho'])) {
+    if (isset($_POST['nome']) && !empty(trim($_POST['nome']))) {
+        // Recebendo os dados do carrinho
+        $carrinho = json_decode($_POST['carrinho'], true);
 
-// Receber os dados do carrinho
-$post = json_decode(file_get_contents("php://input"), true);
+        // Dados do carrinho
+        $produtos = $carrinho['produtos'] ?? [];
+        $total = $carrinho['total'] ?? 0;
 
-// Verificar se os dados do carrinho foram recebidos corretamente
-if (isset($post['array'])) {
-    // Dados do carrinho
-    $carrinho = $post['array']['produtos'];
-    $total = $post['array']['total'];
+        // Inserir dados na tabela 'pedido' e 'item'
+        // ... (seu código de inserção na tabela)
 
-    // Inserir dados na tabela 'pedido'
-    $queryPedido = "INSERT INTO pedido (dataCriacao, quantItem, valorTotalPedido, fk_pessoa_idPessoa) VALUES (GETDATE(), ?, ?, 1)";
-    $paramsPedido = array(count($carrinho), $total);
-    $stmtPedido = sqlsrv_query($conexao, $queryPedido, $paramsPedido);
+        // Preparar os dados para enviar via WhatsApp
+        $cpf = $_POST['nome']; // CPF do cliente
+        $mensagem = "Olá, segue o resumo do seu pedido:\n\n";
+        $mensagem .= "CPF: $cpf\n";
+        $mensagem .= "Total: R$ $total\n\n";
+        $mensagem .= "Itens:\n";
 
-    // Verificar se a consulta de inserção do pedido foi bem-sucedida
-    if ($stmtPedido === false) {
-        echo "Erro ao inserir dados na tabela de pedido.";
-        die(print_r(sqlsrv_errors(), true));
-    }
+        // Adicionando detalhes de cada produto no carrinho à mensagem do WhatsApp
+        foreach ($produtos as $produto) {
+            $nomeProduto = $produto['nome'];
+            $quantidade = $produto['quantidade'];
+            $preco = $produto['preco'];
 
-    // Obter o ID do pedido inserido
-    $idPedido = sqlsrv_fetch_array(sqlsrv_query($conexao, "SELECT SCOPE_IDENTITY()"));
-
-    // Criar uma array para o pedido
-    $pedidoArray = array(
-        'idPedido' => $idPedido[0],
-        'dataCriacao' => date("Y-m-d H:i:s"),
-        'quantItem' => count($carrinho),
-        'valorTotalPedido' => $total,
-        'fk_pessoa_idPessoa' => 1 
-);
-print_r($pedidoArray);
-
-  // Inserir dados na tabela 'item' para cada produto no carrinho
-    foreach ($carrinho as $produto) {
-        $queryItem = "INSERT INTO item (quantidade, fk_produto_idProduto, fk_pedido_idPedido) VALUES (?, ?, ?)";
-        $paramsItem = array($produto['quantidade'], $produto['id'], $idPedido[0]);
-        $stmtItem = sqlsrv_query($conexao, $queryItem, $paramsItem);
-
-        // Verificar se a consulta de inserção do item foi bem-sucedida
-        if ($stmtItem === false) {
-            echo "Erro ao inserir dados na tabela de item.";
-            die(print_r(sqlsrv_errors(), true));
+            // Concatenando detalhes de cada produto à mensagem
+            $mensagem .= "- $nomeProduto | Quantidade: $quantidade | Preço unitário: R$ $preco\n";
         }
+
+        // Agora você pode usar a variável $mensagem para enviar via WhatsApp
+        // Você precisará de uma API ou um serviço para enviar mensagens pelo WhatsApp
+
+        // Exemplo de como você poderia enviar a mensagem (isso pode variar dependendo da API ou serviço usado)
+        // Aqui está um exemplo fictício usando a função mail() do PHP
+        $to = 'seu_whatsapp@provedor.com'; // Substitua pelo seu número de WhatsApp
+        $subject = 'Resumo do pedido';
+        $headers = "From: seu_email@provedor.com";
+        mail($to, $subject, $mensagem, $headers);
+
+        echo "Pedido finalizado com sucesso!";
+
+        // Redirecionar ou realizar outras ações após o pedido ser finalizado
+    } else {
+        echo "O campo CPF não foi preenchido ou está vazio.";
     }
-
-    // Limpar o carrinho
-    if (isset($_SESSION['carrinho'])) {
-        unset($_SESSION['carrinho']);
-    }
-
-    // Fechar a conexão com o SQL Server
-    sqlsrv_close($conexao);
-
-    
-    echo "Dados do carrinho não recebidos corretamente.";
 } else {
-    echo "Pedido finalizado com sucesso!";
-    header("Location: finalizar_compra.html");
-    exit();
-   
+    echo "Dados do carrinho não recebidos corretamente.";
 }
 ?>

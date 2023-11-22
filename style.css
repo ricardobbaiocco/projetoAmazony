@@ -1,104 +1,92 @@
+/* Reset de estilos e configurações globais */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
-*{
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
+    --bs-nav-link-hover-color: #000000; /* Código de cor preta */
+    padding-left: calc(var(--bs-gutter-x) * .1) !important;
+    padding-right: calc(var(--bs-gutter-x) * .1) !important;
 }
-.texto{
+
+/* Navbar */
+
+
+nav li a:hover {
+    background-color: rgba(15, 15, 15, 0.349);
+    color: rgba(0, 0, 0, 0.308);
+    border-radius: 1vh;
+}
+
+.navbar {
+    background-color: #386685b0;
+    min-height: 50px; /* Defina a altura desejada para a navegação */
+}
+
+.navbar-brand {
+    color: #fff !important;
+    font-size: 24px;
+    font-weight: bold;
+    margin-right: 15px;
+}
+
+.navbar-toggler-icon {
+    color: #fff !important;
+}
+
+.navbar-toggler {
+    border-color: #fff !important;
+}
+
+.navbar-nav {
+    margin-top: 1px;
+}
+
+.nav-link {
+    color: #fff !important;
+    font-size: 16px;
+    margin: 0 15px;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #ecf0f1;
+}
+
+/* Banner */
+.banner {
+    background-image: url('imagens/banner.jpg');
+    background-size: cover;
+    background-position: center;
+    color: black;
+    text-align: center;
+    padding: 120px 0;
+    background-color: #6f8ca98c;
+}
+
+.texto {
     margin-top: 25vh;
 }
-.navbar-collapse{
-    flex-grow: 0 !important;
-}
-/*.carousel{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    top: 15%;
-    left: 10vh;
-    position: absolute;
-    width: 1250px ;
-    border: 1px solid;
-    height: 520px;
-}*/
-.carousel {
-    display: flex !important;
-    top: 10%;
-    position: absolute;
-    width: 1250px ;
-    border: 1px solid;
-    height: 520px;
-    background-color: black;
-    
-}
 
-.d-block {
-    display: block !important;
-}
-
-nav{
-    /*position: fixed;*/
-    top: 0;
-    width: 100%;
-    background-color: #1618172d;
-    padding: 10px 60px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-nav .logo a{
-    text-decoration: none;
-    color: #fff;
-    font-size: 35px;
-    font-weight: 600;
-}
-nav ul{
-    display: flex;
-    align-items: center;
-    list-style: none;
-    padding: 10px;
-}
-nav li{
-    margin-left: 7px;
-}
-nav li a{
-    text-decoration: none;
-    color: #ffffff;
-    font-size: 18px;
-    font-weight: 500;
-    padding: 8px 15px;
-    border-radius: 5px;
-    transition: 0.3s;
-}
-nav li a:hover{
-    background-color: white;
-    color: black;
-}
-.banner{ 
-    background: linear-gradient( rgba(0,0,0,0.281), rgba(0,0,0,0.308)),url('imagens/artigo-buranello-site-1200px.jpg');
-    background-size: cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background-repeat: no-repeat;
-    border-radius: 9% !important;
-}
-.texto .titulo{
+.texto .titulo {
     color: #fff !important;
     font-size: 60px;
     font-weight: 600;
 }
-.texto .sub_titulo{
+
+.texto .sub_titulo {
     color: #fff !important;
     font-size: 58px;
     font-weight: 600;
 }
-.texto .botoes{
+
+.texto .botoes {
     margin-top: 30px;
 }
-.texto .botoes button{
+
+.texto .botoes button {
     height: 55px;
     width: 170px;
     border-radius: 5px;
@@ -111,48 +99,61 @@ nav li a:hover{
     outline: none;
     transition: 0.3s;
 }
-.texto .botoes button.n-overlay{
+
+.texto .botoes button.n-overlay {
     color: white;
     background: none;
     border: 2px solid white;
 }
-.texto .botoes button.n-overlay:hover{
+
+.texto .botoes button.n-overlay:hover {
     color: black;
     background-color: white;
 }
-.texto .botoes button.overlay{
+
+.texto .botoes button.overlay {
     background: white;
     color: black;
     animation: vibrar 0.5s ease-in-out infinite both;
 }
+
 @keyframes vibrar {
-    0%{
+    0% {
         transform: scale(1);
     }
-    50%{
+    50% {
         transform: scale(1.1);
     }
-    100%{
+    100% {
         transform: scale(1);
     }
 }
 
-#cidadeOrigem{
+.lead {
+    margin-top: 35px;
+}
+
+#cidadeOrigem {
     margin: 2vh;
 }
 
-#cidadeDestino{
+#cidadeDestino {
     margin: 2vh;
 }
 
-.formularios{
-    margin-top: 13vh;
-    background-size: cover !important;
-    color: #fff;
-    background: linear-gradient( rgba(0, 0, 0, 0.637), rgba(0, 0, 0, 0.582)),url('imagens/cabo.png');
+.cardRodape {
+    width: 190vh;
+    margin: 0;
 }
 
-.tamanhoBotao{
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    .formularios {
+        margin-top: 5vh;
+    }
+}
+
+.tamanhoBotao {
     width: 200px;
     height: 37px;
     text-align: center;
@@ -160,7 +161,7 @@ nav li a:hover{
     margin-block-end: 2vh;
 }
 
-.titulo{
+.titulo {
     margin-top: 4vh;
     margin-block-end: 4vh;
 }
@@ -169,42 +170,102 @@ nav li a:hover{
 .alert-narrow {
     max-width: 400px; /* Ajuste a largura máxima desejada */
     margin: 0 auto; /* Centraliza horizontalmente */
-  }
+}
 
-  .produto-img {
+.produto-img {
     max-width: 100px;
     max-height: 100px;
 }
 
-.text-left-custom {
-    text-align: left;
-    font-size:x-small;
+/* Estilos personalizados */
+.form-group {
+    margin-bottom: 20px;
 }
 
-.whatsapp-icon {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #25d366;
-    color: #fff;
-    border-radius: 50%;
+/* Reduza o tamanho dos campos de cartão */
+#numero-cartao, #data-validade, #codigo-seguranca {
+    max-width: 200px;
+}
+
+/* Adicione bordas às abas */
+.nav-tabs .nav-item {
+    border: 1px solid #dee2e6; /* Cor da borda */
+    border-radius: 0.25rem; /* Borda arredondada */
+    margin-right: 5px; /* Espaçamento entre as abas */
+}
+
+/* Estilize a aba ativa */
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    background-color: #007bff; /* Cor de fundo da aba ativa */
+    color: #fff; /* Cor do texto da aba ativa */
+    border: 1px solid #007bff; /* Cor da borda da aba ativa */
+}
+
+/* Adicione bordas ao conteúdo das abas */
+.tab-content {
+    border: 1px solid #dee2e6; /* Cor da borda do conteúdo */
+    border-radius: 0.25rem; /* Borda arredondada */
+    padding: 10px; /* Espaçamento interno */
+}
+
+.produto-preco {
+    font-size: 18px;
+    font-weight: bold;
+    color: #3498db; /* ou qualquer cor desejada */
+}
+
+.produto-img-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px; /* Ajuste conforme necessário para o tamanho desejado */
+}
+
+
+.bg-dark{
+    background-color: #6f8ca98c !important;
+    border-top-left-radius: 1vh !important;
+    border-top-right-radius: 1vh !important
+}
+
+.pesquisa-form {
+    margin-bottom: 20px;
+}
+
+
+.produto-card:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out;
+}
+
+.servico-card {
+    border: 1px solid #ddd;
+    margin: 10px;
     padding: 10px;
-    cursor: pointer;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s;
+    text-align: center;
+    width: 300px;
+    height: 350px;
+    display: inline-block;
 }
 
-.whatsapp-icon:hover {
-    background-color: #128c7e;
+.servico-img {
+    max-width: 100%;
+    height: auto;
 }
 
-.whatsapp-icon i {
-    font-size: 24px;
+.servico-nome {
+    font-size: 1.2rem;
+    font-weight: bold;
 }
 
+.servico-descricao {
+    font-size: 0.9rem;
+}
 
+.adicionar-btn {
+    width: 100px;
+}
 
-  
-  
-  
-  
+.carrinho-item {
+    font-size: 0.9rem;
+}

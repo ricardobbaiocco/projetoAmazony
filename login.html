@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,56 +8,127 @@
     <link rel="icon" href="imagens/logo.png" type="image/png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
+    <style>
+        
+
+        .formularios {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .alert {
+            border-radius: 8px;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border: 1px solid #007bff;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border: 1px solid #0056b3;
+        }
+
+        a {
+            color: #007bff;
+        }
+
+        a:hover {
+            text-decoration: none;
+            color: #0056b3;
+        }
+    </style>
 </head>
-<body class="banner">
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+
+<body class="container">
+    <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
-            <div class="logo">
-                <a href="index.html">Amazony Info</a>
-            </div>
+            <a class="navbar-brand" href="index.html">Amazony Info</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
             </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item <?php echo ($paginaAtual == 'index.html') ? 'active' : ''; ?>">
+                        <a class="nav-link" href="index.html">Página Inicial</a>
+                    </li>
+                    <li class="nav-item <?php echo ($paginaAtual == 'lista_produto.php') ? 'active' : ''; ?>">
+                        <a class="nav-link" href="lista_produto.php">Produtos</a>
+                    </li>
+                    <li class="nav-item <?php echo ($paginaAtual == 'lista_servico.php') ? 'active' : ''; ?>">
+                        <a class="nav-link" href="lista_servico.php">Serviços</a>
+                    </li>
+                    <li class="nav-item <?php echo ($paginaAtual == 'login.html') ? 'active' : ''; ?>">
+                        <a class="nav-link" href="login.html">Login</a>
+                    </li>
+                    <li class="nav-item <?php echo ($paginaAtual == 'quemsomos.html') ? 'active' : ''; ?>">
+                        <a class="nav-link" href="quemsomos.html">Quem Somos</a>
+                    </li>
+                    <li class="nav-item <?php echo ($paginaAtual == 'logout.php') ? 'active' : ''; ?>">
+                        <a class="nav-link" href="logout.php">Sair</a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
+    
     <br>
     <br>
     <div class="container formularios">
         <div class="alert alert-success alert-narrow" id="alert-success-login" style="display: none;">
             Login realizado com sucesso!
-            </div>
-            <div class="alert alert-danger alert-narrow" id="alert-error-login" style="display: none;">
+        </div>
+        <div class="alert alert-danger alert-narrow" id="alert-error-login" style="display: none;">
             Usuário ou senha incorretos!
         </div>
         <br>
-        <h2 align="center">Login</h2>
+        <h2 class="text-center">Login</h2>
         <br>
         <form method="POST" action="login_.php" id="form-login">
-            <div class="row justify-content-center">   
-                <div class="form-group col-md-3">
-                  <label for="usuario">Usuário:</label>
-                  <input type="text" class="form-control"  id="usuario" name="usuario" placeholder="CPF" required>
+            <div class="row justify-content-center">
+                <div class="form-group col-md-6">
+                    <label for="usuario">Usuário:</label>
+                    <input type="number" class="form-control" id="usuario" name="usuario" placeholder="CPF" required>
                 </div>
             </div>
             <br>
-            <div class="row justify-content-center">   
-              <div class="form-group col-md-3">
-                  <label for="senha">Senha</label>
-                  <input type="password" class="form-control" id="senha" name="senha" required>
-              </div>
+            <div class="row justify-content-center">
+                <div class="form-group col-md-6">
+                    <label for="senha">Senha</label>
+                    <input type="password" class="form-control" id="senha" name="senha" required>
+                </div>
             </div>
             <br>
-            <div class="row justify-content-center">  
+            <div class="row justify-content-center">
                 <div class="form-group col-md-6">
-                  <button type="submit" class="btn btn-primary">Entrar</button>
-                    <p><a href="cadastro_pessoa.html">Registre-se</a></p>
+                    <button type="submit" class="btn btn-primary btn-block">Entrar</button>
+                    <p class="text-center mt-3"><a href="cadastro_pessoa.html">Registre-se</a></p>
                 </div>
             </div>
         </form>
     </div>
+    <footer class="bg-dark text-center py-10 rounded-top p-3">
+        <div class="container mt-4">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>&copy; 2023 Amazony Info. Todos os direitos reservados.</p>
+                </div>
+                <div class="col-md-6">
+                    <ul class="list-inline">
+                        <li class="list-inline-item"><a href="#">Termos de Serviço</a></li>
+                        <li class="list-inline-item"><a href="#">Política de Privacidade</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
     <script src="alert_Login.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

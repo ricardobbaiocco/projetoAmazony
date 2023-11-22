@@ -7,17 +7,7 @@
     <link rel="icon" href="imagens/logo.png" type="image/png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
-    <style>
-        /* Estilos personalizados */
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        /* Reduza o tamanho dos campos de cartão */
-        #numero-cartao, #data-validade, #codigo-seguranca {
-            max-width: 200px;
-        }
-    </style>
+ 
 </head>
 <body class="banner">
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
@@ -42,7 +32,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="login.html">Login</a>
                     </li>
-                    <li class"nav-item">
+                    <li class = "nav-item">
                         <a class="nav-link" href="quemsomos.html">Quem Somos</a>
                     </li>
                 </ul>
@@ -50,70 +40,55 @@
         </div>
     </nav>
     <div class="container formularios">
-        <!-- O restante do conteúdo da página, incluindo a tabela de carrinho -->
-        <br>
-        <h2 align="center">Finalização da Compra</h2>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">Produto</th>
-                    <th scope="col">Quantidade</th>
-                    <th scope="col">Preço</th>
-                    <th scope="col">Ações</th>
-                </tr>
-            </thead>
-            <tbody id="carrinho-lista">
-                <!-- Os dados do carrinho serão exibidos aqui dinamicamente -->
-            </tbody>
-        </table>
-        <form method="post" action="finalizar_pedido.php" id="carrinho-form">
-            <!-- Use um campo oculto para enviar os dados do carrinho para a página de finalização -->
-            <input type="hidden" name="carrinho" id="carrinho-dados">
-            <!-- Formulário para informações de pagamento -->
-            <h3>Informações de Pagamento</h3>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="metodo-pagamento">Método de Pagamento:</label>
-                    <select class="form-control" id="metodo-pagamento" name="metodo-pagamento">
-                        <option value="cartao">Cartão de Crédito</option>
-                        <option value="boleto">Boleto Bancário</option>
-                        <option value="avista">À Vista</option>
-                    </select>
-                </div>
-                <div class="form-group col-md-3">
-                    <label for="empresa-cartao">Empresa do Cartão:</label>
-                    <input type="text" class="form-control" id="empresa-cartao" name="empresa-cartao" placeholder="Ex: Visa, MasterCard, etc.">
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-2">
-                    <label for="numero-cartao">Número do Cartão:</label>
-                    <input type="text" class="form-control" id="numero-cartao" name="numero-cartao" placeholder="Número do Cartão">
-                </div>
-                <div class="form-group col-md-2">
-                    <label for="data-validade">Data de Validade:</label>
-                    <input type="text" class="form-control" id="data-validade" name="data-validade" placeholder="MM/AA">
-                </div>
-                <div class="form-group col-md-2">
-                    <label for="codigo-seguranca">Código de Segurança (CVV):</label>
-                    <input type="text" class="form-control" id="codigo-seguranca" name="codigo-seguranca" placeholder="CVV">
+        <!-- Abas de Carrossel -->
+        <ul class="nav nav-tabs" id="myTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <a class="nav-link active" id="resumo-tab" data-bs-toggle="tab" href="#resumo" role="tab" aria-controls="resumo" aria-selected="true">Resumo do Carrinho</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" id="proximo-tab" data-bs-toggle="tab" href="#pagamento" role="tab" aria-controls="pagamento" aria-selected="false">Finalização</a>
+            </li>
+        </ul>
+        <div class="tab-content" id="myTabsContent">
+            <!-- Aba "Resumo do Carrinho" -->
+            <div class="tab-pane fade show active" id="resumo" role="tabpanel" aria-labelledby="resumo-tab">
+                <br>
+                <h2 align="center">Resumo do Carrinho</h2>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Produto</th>
+                            <th scope="col">Quantidade</th>
+                            <th scope="col">Preço</th>
+                            <th scope="col">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="carrinho-lista">
+                        <!-- Os dados do carrinho serão exibidos aqui dinamicamente -->
+                    </tbody>
+                </table>
+                <div class="row justify-content-center">
+                    <div class="d-flex align-items-center justify-content-center">
+                        <a href="http://api.whatsapp.com/send?phone=' . $numeroWhatsApp . '&text=' . urlencode("Olá, vi no site e tenho interesse nestes produtos!) class="btn btn-success adicionar-btn">Enviar</a>
+                        <div class="btn-group">
+                        </div>
+                    </div>
+                    <p color="red">* para finalizar a compra tire um print desta tela do carrinho clique no botão enviar, 
+                        colando a imagem no WhatsApp</p>
                 </div>
             </div>
-            <div class="form-group">
-                <label for="parcelamento">Métodos de Parcelamento:</label>
-                <select class="form-control" id="parcelamento" name="parcelamento">
-                    <option value="1">À Vista</option>
-                    <option value="2">2x sem juros</option>
-                    <option value="3">3x sem juros</option>
-                    <option value="6">6x sem juros</option>
-                </select>
-            </div>
-            <!-- Outros campos de informações de pagamento, como número de cartão, data de validade, código de segurança, etc. -->
-            <button type="submit" name="submit_button" id="finalizar-compra" class="btn btn-success">Finalizar Pedido</button>
-        </form>
-        <div id="querPedido"></div>
+        </div>
     </div>
+
     <script src="carrinho.js"></script>
-    <!-- Os scripts adicionais e links de Bootstrap aqui -->
-</body>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
+    <script>
+        // Função para alternar para a aba de pagamento
+        function irParaProximo() {
+            $('#proximo-tab').tab('show');
+        }
+    </script>
+    </body>
 </html>
