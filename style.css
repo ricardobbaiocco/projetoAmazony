@@ -1,0 +1,271 @@
+/* Reset de estilos e configurações globais */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    --bs-nav-link-hover-color: #000000; /* Código de cor preta */
+    padding-left: calc(var(--bs-gutter-x) * .1) !important;
+    padding-right: calc(var(--bs-gutter-x) * .1) !important;
+}
+
+/* Navbar */
+
+
+nav li a:hover {
+    background-color: rgba(15, 15, 15, 0.349);
+    color: rgba(0, 0, 0, 0.308);
+    border-radius: 1vh;
+}
+
+.navbar {
+    background-color: #386685b0;
+    min-height: 50px; /* Defina a altura desejada para a navegação */
+}
+
+.navbar-brand {
+    color: #fff !important;
+    font-size: 24px;
+    font-weight: bold;
+    margin-right: 15px;
+}
+
+.navbar-toggler-icon {
+    color: #fff !important;
+}
+
+.navbar-toggler {
+    border-color: #fff !important;
+}
+
+.navbar-nav {
+    margin-top: 1px;
+}
+
+.nav-link {
+    color: #fff !important;
+    font-size: 16px;
+    margin: 0 15px;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #ecf0f1;
+}
+
+/* Banner */
+.banner {
+    background-image: url('imagens/banner.jpg');
+    background-size: cover;
+    background-position: center;
+    color: black;
+    text-align: center;
+    padding: 120px 0;
+    background-color: #6f8ca98c;
+}
+
+.texto {
+    margin-top: 25vh;
+}
+
+.texto .titulo {
+    color: #fff !important;
+    font-size: 60px;
+    font-weight: 600;
+}
+
+.texto .sub_titulo {
+    color: #fff !important;
+    font-size: 58px;
+    font-weight: 600;
+}
+
+.texto .botoes {
+    margin-top: 30px;
+}
+
+.texto .botoes button {
+    height: 55px;
+    width: 170px;
+    border-radius: 5px;
+    border: 0;
+    margin: 0 10px;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 0 10px;
+    cursor: pointer;
+    outline: none;
+    transition: 0.3s;
+}
+
+.texto .botoes button.n-overlay {
+    color: white;
+    background: none;
+    border: 2px solid white;
+}
+
+.texto .botoes button.n-overlay:hover {
+    color: black;
+    background-color: white;
+}
+
+.texto .botoes button.overlay {
+    background: white;
+    color: black;
+    animation: vibrar 0.5s ease-in-out infinite both;
+}
+
+@keyframes vibrar {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.lead {
+    margin-top: 35px;
+}
+
+#cidadeOrigem {
+    margin: 2vh;
+}
+
+#cidadeDestino {
+    margin: 2vh;
+}
+
+.cardRodape {
+    width: 190vh;
+    margin: 0;
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    .formularios {
+        margin-top: 5vh;
+    }
+}
+
+.tamanhoBotao {
+    width: 200px;
+    height: 37px;
+    text-align: center;
+    margin-top: 2vh;
+    margin-block-end: 2vh;
+}
+
+.titulo {
+    margin-top: 4vh;
+    margin-block-end: 4vh;
+}
+
+/* Estilo personalizado para alertas estreitos */
+.alert-narrow {
+    max-width: 400px; /* Ajuste a largura máxima desejada */
+    margin: 0 auto; /* Centraliza horizontalmente */
+}
+
+.produto-img {
+    max-width: 100px;
+    max-height: 100px;
+}
+
+/* Estilos personalizados */
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* Reduza o tamanho dos campos de cartão */
+#numero-cartao, #data-validade, #codigo-seguranca {
+    max-width: 200px;
+}
+
+/* Adicione bordas às abas */
+.nav-tabs .nav-item {
+    border: 1px solid #dee2e6; /* Cor da borda */
+    border-radius: 0.25rem; /* Borda arredondada */
+    margin-right: 5px; /* Espaçamento entre as abas */
+}
+
+/* Estilize a aba ativa */
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    background-color: #007bff; /* Cor de fundo da aba ativa */
+    color: #fff; /* Cor do texto da aba ativa */
+    border: 1px solid #007bff; /* Cor da borda da aba ativa */
+}
+
+/* Adicione bordas ao conteúdo das abas */
+.tab-content {
+    border: 1px solid #dee2e6; /* Cor da borda do conteúdo */
+    border-radius: 0.25rem; /* Borda arredondada */
+    padding: 10px; /* Espaçamento interno */
+}
+
+.produto-preco {
+    font-size: 18px;
+    font-weight: bold;
+    color: #3498db; /* ou qualquer cor desejada */
+}
+
+.produto-img-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px; /* Ajuste conforme necessário para o tamanho desejado */
+}
+
+
+.bg-dark{
+    background-color: #6f8ca98c !important;
+    border-top-left-radius: 1vh !important;
+    border-top-right-radius: 1vh !important
+}
+
+.pesquisa-form {
+    margin-bottom: 20px;
+}
+
+
+.produto-card:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out;
+}
+
+.servico-card {
+    border: 1px solid #ddd;
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+    width: 300px;
+    height: 350px;
+    display: inline-block;
+}
+
+.servico-img {
+    max-width: 100%;
+    height: auto;
+}
+
+.servico-nome {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.servico-descricao {
+    font-size: 0.9rem;
+}
+
+.adicionar-btn {
+    width: 100px;
+}
+
+.carrinho-item {
+    font-size: 0.9rem;
+}

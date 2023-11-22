@@ -1,0 +1,176 @@
+Conteúdo de $data: carrinho=&submit=
+Conteúdo de $carrinho: 
+Conteúdo de $data: {"produtos":[{"id":9,"nome":"Notebook","quantidade":1,"preco":500},{"id":13,"nome":"Mouse","quantidade":3,"preco":90}],"total":""}
+Conteúdo de $carrinho: Array
+(
+    [produtos] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 9
+                    [nome] => Notebook
+                    [quantidade] => 1
+                    [preco] => 500
+                )
+
+            [1] => Array
+                (
+                    [id] => 13
+                    [nome] => Mouse
+                    [quantidade] => 3
+                    [preco] => 90
+                )
+
+        )
+
+    [total] => 
+)
+
+Conteúdo de $data: {"produtos":[{"id":9,"nome":"Notebook","quantidade":1,"preco":500},{"id":13,"nome":"Mouse","quantidade":3,"preco":90}],"total":""}
+Conteúdo de $carrinho: Array
+(
+    [produtos] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 9
+                    [nome] => Notebook
+                    [quantidade] => 1
+                    [preco] => 500
+                )
+
+            [1] => Array
+                (
+                    [id] => 13
+                    [nome] => Mouse
+                    [quantidade] => 3
+                    [preco] => 90
+                )
+
+        )
+
+    [total] => 
+)
+
+Conteúdo de $data: {"produtos":[{"id":7,"nome":"Computador","quantidade":2,"preco":3425}],"total":""}
+Conteúdo de $carrinho: Array
+(
+    [produtos] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 7
+                    [nome] => Computador
+                    [quantidade] => 2
+                    [preco] => 3425
+                )
+
+        )
+
+    [total] => 
+)
+
+Conteúdo de $data: {"produtos":[{"id":7,"nome":"Computador","quantidade":2,"preco":3425},{"id":44,"nome":"Teclado","quantidade":1,"preco":120}],"total":""}
+Conteúdo de $carrinho: Array
+(
+    [produtos] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 7
+                    [nome] => Computador
+                    [quantidade] => 2
+                    [preco] => 3425
+                )
+
+            [1] => Array
+                (
+                    [id] => 44
+                    [nome] => Teclado
+                    [quantidade] => 1
+                    [preco] => 120
+                )
+
+        )
+
+    [total] => 
+)
+
+Conteúdo de $data: {"produtos":[{"id":7,"nome":"Computador","quantidade":2,"preco":3425},{"id":44,"nome":"Teclado","quantidade":1,"preco":120},{"id":13,"nome":"Mouse","quantidade":7,"preco":90}],"total":""}
+Conteúdo de $carrinho: Array
+(
+    [produtos] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 7
+                    [nome] => Computador
+                    [quantidade] => 2
+                    [preco] => 3425
+                )
+
+            [1] => Array
+                (
+                    [id] => 44
+                    [nome] => Teclado
+                    [quantidade] => 1
+                    [preco] => 120
+                )
+
+            [2] => Array
+                (
+                    [id] => 13
+                    [nome] => Mouse
+                    [quantidade] => 7
+                    [preco] => 90
+                )
+
+        )
+
+    [total] => 
+)
+
+Conteúdo de $data: {"produtos":[{"id":7,"nome":"Computador","quantidade":2,"preco":3425},{"id":44,"nome":"Teclado","quantidade":1,"preco":120},{"id":13,"nome":"Mouse","quantidade":7,"preco":90},{"id":48,"nome":"Fone de ouvido","quantidade":3,"preco":250}],"total":""}
+Conteúdo de $carrinho: Array
+(
+    [produtos] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 7
+                    [nome] => Computador
+                    [quantidade] => 2
+                    [preco] => 3425
+                )
+
+            [1] => Array
+                (
+                    [id] => 44
+                    [nome] => Teclado
+                    [quantidade] => 1
+                    [preco] => 120
+                )
+
+            [2] => Array
+                (
+                    [id] => 13
+                    [nome] => Mouse
+                    [quantidade] => 7
+                    [preco] => 90
+                )
+
+            [3] => Array
+                (
+                    [id] => 48
+                    [nome] => Fone de ouvido
+                    [quantidade] => 3
+                    [preco] => 250
+                )
+
+        )
+
+    [total] => 
+)
+
+Conteúdo de $data: carrinho=&submit=
+Conteúdo de $carrinho: 

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Amazony Info</title>
+    <link rel="icon" href="imagens/logo.png" type="image/png">
+</head>
+
+<body class="bg-light">
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Amazony Info</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item <?php echo ($paginaAtual == 'index.html') ? 'active' : ''; ?>">
+                        <a class="nav-link" href="index.html">Página Inicial</a>
+                    </li>
+                    <li class="nav-item <?php echo ($paginaAtual == 'lista_produto.php') ? 'active' : ''; ?>">
+                        <a class="nav-link" href="lista_produto.php">Produtos</a>
+                    </li>
+                    <li class="nav-item <?php echo ($paginaAtual == 'lista_servico.php') ? 'active' : ''; ?>">
+                        <a class="nav-link" href="lista_servico.php">Serviços</a>
+                    </li>
+                    <li class="nav-item <?php echo ($paginaAtual == 'login.html') ? 'active' : ''; ?>">
+                        <a class="nav-link" href="login.html">Login</a>
+                    </li>
+                    <li class="nav-item <?php echo ($paginaAtual == 'quemsomos.html') ? 'active' : ''; ?>">
+                        <a class="nav-link" href="quemsomos.html">Quem Somos</a>
+                    </li>
+                    <li class="nav-item <?php echo ($paginaAtual == 'logout.php') ? 'active' : ''; ?>">
+                        <a class="nav-link" href="logout.php">Sair</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <header class="bg-dark text-white text-center py-5">
+        <div class="container">
+            <br>
+            <h1 class="display-4">Amazony Info</h1>
+            <p class="lead">Transformando Tecnologia em Soluções</p>
+        </div>
+    </header>
+
+    <section class="container my-5">
+        <div class="row">
+            <div class="col-lg-6">
+                <h2 class="display-4">Quem Somos</h2>
+                <p class="lead">A Amazony Info é uma empresa líder em soluções de tecnologia da informação,
+                    dedicada a fornecer serviços excepcionais para nossos clientes. Com mais de duas décadas de
+                    experiência, estamos comprometidos em transformar tecnologia em soluções práticas e inovadoras.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-light py-5">
+        <div class="container">
+            <h2 class="display-4 text-center mb-5">Nossos Valores</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <h3>Excelência</h3>
+                    <p>Nosso compromisso com a excelência reflete em cada serviço que oferecemos. Buscamos
+                        consistentemente os mais altos padrões de qualidade.</p>
+                </div>
+                <div class="col-md-4">
+                    <h3>Inovação</h3>
+                    <p>Estamos na vanguarda da inovação, utilizando tecnologias de ponta para oferecer soluções
+                        eficientes e adaptáveis.</p>
+                </div>
+                <div class="col-md-4">
+                    <h3>Parceria</h3>
+                    <p>Construímos relações sólidas com nossos clientes, colaboradores e parceiros, baseadas na
+                        confiança e na transparência.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white text-center py-3">
+        <p>&copy; 2023 Amazony Info. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
